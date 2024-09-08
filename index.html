@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>&lt;model-viewer&gt; example</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="demo-styles.css">
+    <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+    <style>
+      .social-media-icons {
+        position: fixed;
+        bottom: 20px;
+        center: 20px;
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-media-icons img {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+<body>
+  <div id="loader-container">
+    <div class="loader"></div>
+  </div>
+
+  <div id="card" style="display:none;">
+    <model-viewer src="https://cdn.glitch.me/f3befc11-a295-49bd-9b92-13e9642ad0bf/30x15%20ar12.glb?v=1725782608601"
+                  ios-src="https://cdn.glitch.global/f3befc11-a295-49bd-9b92-13e9642ad0bf/30x15%20ar2.usdc?v=1725782642625"
+                  poster="https://cdn.glitch.global/f3befc11-a295-49bd-9b92-13e9642ad0bf/Front%20onfrot%20left%20down.png?v=1725774720996"
+                  alt="Modern house"
+                  shadow-intensity="1"
+                  camera-controls
+                  auto-rotate 
+                  ar>
+                  
+    </model-viewer>
+  </div>
+
+ 
+  
+  <!-- Scripts to load the model viewer -->
+  <script type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
+
+  <!-- JavaScript to handle the loading animation and display the model -->
+  <script>
+    window.addEventListener('load', function() {
+      const loaderContainer = document.getElementById('loader-container');
+      const modelViewer = document.getElementById('card');
+      
+      // Hide loader after some time and show model viewer
+      setTimeout(() => {
+        loaderContainer.style.display = 'none';
+        modelViewer.style.display = 'block';
+      }, 3000); // Adjust the timeout as needed
+    });
+  </script>
+</body>
+</html>
